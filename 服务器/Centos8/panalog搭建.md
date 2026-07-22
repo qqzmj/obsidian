@@ -13,5 +13,7 @@ tar -zxvf loginstall20220513_Linux3.10.0x_amd64.tar.gz -C /
 ```
 ## 运行panalog
 ```
-
+/usr/logd/bin/logd &
+#如果解压到/目录则如上
+#比如解压到/panalog/中，则/panalog/usr/logd/bin/logd &
 ```
