@@ -88,7 +88,9 @@ http {
             charset utf-8;
             #编码类型，如果出现乱码则改为gbk尝试
             sub_filter 'Index of /' '自用下载站';
+            #修改标题
             sub_filter_once off;
+            #控制文本替换的次数，这将会控制页面中所有出现“Index of /”都替换为“自用下载站”
             if (-f $request_filename) {
                 add_header Content-Disposition 'attachment';
         }
