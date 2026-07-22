@@ -133,7 +133,11 @@ lvextend -l +100%FREE /dev/vg1/lv1
 lvextend -L 300G /dev/vg1/lv1
 #增加10G
 #使用剩余所有空间
-#
+#扩展到指定大小
+#以上条命令选择一种即可，这是扩容LV的
+
+xfs_growfs /dev/vg1/lv1
+#在线扩容/dev/vg1/lv1即可
 
 ```
 
