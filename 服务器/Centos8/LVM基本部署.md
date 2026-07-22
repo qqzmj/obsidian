@@ -31,7 +31,7 @@ tmpfs                179M     0  179M   0% /run/user/0
   Physical volume "/dev/nvme0n2" successfully created.
 [root@192 ~]# pvcreate /dev/nvme0n3
   Physical volume "/dev/nvme0n3" successfully created.
-#将硬盘初始化为LVM的物理卷
+#将硬盘初始化为LVM的物理卷，不支持两个硬盘一起初始化
 
 [root@192 ~]# pvs
   PV             VG Fmt  Attr PSize   PFree  
@@ -42,7 +42,12 @@ tmpfs                179M     0  179M   0% /run/user/0
 ```
 ## 创建VG并将PV加入到VG
 ```
-
+[root@192 ~]# vgcreate vg1 /dev/nvme0n2 /dev/nvme0n3
+  Volume group "vg1" successfully created
+[root@192 ~]# vgs
+  VG  #PV #LV #SN Attr   VSize   VFree  
+  cl    1   2   0 wz--n- <29.00g      0 
+  vg1   2   0   0 wz--n- 199.99g 199.99g
 ```
 
 
