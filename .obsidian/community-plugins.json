@@ -1,5 +1,6 @@
 [
   "table-editor-obsidian",
   "editing-toolbar",
-  "obsidian-git"
+  "obsidian-git",
+  "obsidian-view-mode-by-frontmatter"
 ]
