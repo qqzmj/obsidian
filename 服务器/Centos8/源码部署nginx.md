@@ -66,6 +66,29 @@ conf  html  logs  nginx-1.26.3  sbin
 ```
 ## nginx环境变量及服务配置
 ```
+[root@localhost ~]# vim .bash_profile 
+#编辑环境变量文件，增加nginx软件路径（用户级配置文件为~/.bash_profile或~/.bashrc）
+PATH=/opt/nginx/sbin:$PATH:$HOME/bin
+
+[root@localhost ~]#  source /root/.bash_profile 
+[root@localhost ~]# nginx -s stop
+#关闭nginx
+
+[root@localhost ~]# nginx
+#启动nginx
+
+[root@localhost ~]# nginx -s reload
+#重加载nginx
+#如果需要开机自启动可以写在开机脚本里面
+
+[root@localhost ~]# cat /etc/rc.d/rc.local 
+#开机脚本路径
+#在文件内添加相关命令即可，”nginx“添加后即可开机自启动了
+```
+## 将源码nginx创建成服务进行管理(可选)
+```
 
 ```
+
+
 
