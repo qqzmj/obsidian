@@ -32,6 +32,13 @@ tmpfs                179M     0  179M   0% /run/user/0
 [root@192 ~]# pvcreate /dev/nvme0n3
   Physical volume "/dev/nvme0n3" successfully created.
 #将硬盘初始化为LVM的物理卷
+
+[root@192 ~]# pvs
+  PV             VG Fmt  Attr PSize   PFree  
+  /dev/nvme0n1p2 cl lvm2 a--  <29.00g      0 
+  /dev/nvme0n2      lvm2 ---  100.00g 100.00g
+  /dev/nvme0n3      lvm2 ---  100.00g 100.00g
+#查看pv简要信息，详细信息使用pvdisplay
 ```
 
 
