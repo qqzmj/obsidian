@@ -1,6 +1,30 @@
 ## LVM基本组成
 ![[Pasted image 20260722205312.png]]
+## 查看硬盘信息及当前挂载信息
+```
+[root@192 ~]# lsblk
+NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sr0          11:0    1 10.1G  0 rom  
+nvme0n1     259:0    0   30G  0 disk 
+├─nvme0n1p1 259:1    0    1G  0 part /boot
+└─nvme0n1p2 259:2    0   29G  0 part 
+  ├─cl-root 253:0    0   27G  0 lvm  /
+  └─cl-swap 253:1    0    2G  0 lvm  [SWAP]
+nvme0n2     259:3    0  100G  0 disk 
+nvme0n3     259:4    0  100G  0 disk 
+#nv**2和3是我们新增的100G硬盘
 
+[root@192 ~]# df -h
+Filesystem           Size  Used Avail Use% Mounted on
+devtmpfs             877M     0  877M   0% /dev
+tmpfs                896M     0  896M   0% /dev/shm
+tmpfs                896M  8.7M  887M   1% /run
+tmpfs                896M     0  896M   0% /sys/fs/cgroup
+/dev/mapper/cl-root   27G  3.0G   24G  11% /
+/dev/nvme0n1p1      1014M  216M  799M  22% /boot
+tmpfs                179M     0  179M   0% /run/user/0
+#
+```
 
 
 
