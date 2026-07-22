@@ -40,7 +40,10 @@ tmpfs                179M     0  179M   0% /run/user/0
   /dev/nvme0n3      lvm2 ---  100.00g 100.00g
 #查看pv简要信息，详细信息使用pvdisplay
 ```
+## 创建VG并将PV加入到VG
+```
 
+```
 
 
 
