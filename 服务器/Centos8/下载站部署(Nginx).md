@@ -82,9 +82,11 @@ http {
             #开启目录索引功能，即允许列出整个目录
             autoindex_exact_size off;
             #on，能够显示出文件的确切大小，单位是bytes
-            #off，显示文件大概大小，单位是kB或MB
+            #off，显示文件大概大小，单位是kB/MB/GB，该方式更为人性化
             autoindex_localtime on;
+            #默认为off，显示的文件时间为GMT时间。改为on后，显示的文件时间为文件的服务器时间
             charset utf-8;
+            #编码类型，如果出现乱码则改为gbk尝试
             sub_filter 'Index of /' '自用下载站';
             sub_filter_once off;
             if (-f $request_filename) {
