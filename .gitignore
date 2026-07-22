@@ -1,16 +1,35 @@
-# Obsidian workspace and cache (don't sync these — they're personal/per-device)
+# ===== 最推荐的通用忽略项（新手/多设备首选） =====
+
+# 1. 设备特定的界面布局（最重要，强烈推荐忽略）
+# 不同电脑和手机的窗口位置、打开的标签页不一样，容易频繁冲突
 .obsidian/workspace.json
-.obsidian/workspace-mobile.json
-.obsidian/cache
-.obsidian/hotkeys.json
+.obsidian/app.json
 
-# Obsidian plugin data that's device-specific
-.obsidian/plugins/*/data.json
-
-# OS files
+# 2. 系统自动生成的垃圾文件
 .DS_Store
 Thumbs.db
-desktop.ini
+.directory
 
-# Trash
-.Trash-*
+# 3. Obsidian 自己的回收站
+.trash/
+
+# ===== 可选进阶忽略（根据你的情况选） =====
+
+# 4. 整个 .obsidian 文件夹（最简单粗暴）
+# 适合：不想同步插件设置、主题、快捷键，每台设备自己配一次
+# .obsidian/
+
+# 5. 保护隐私，避免密钥泄露（推荐）
+# 很多插件的 data.json 里可能存 API Key、Token
+.obsidian/plugins/*/data.json
+
+# 6. 大文件和附件（仓库会变大，同步会变慢）
+# 如果你有大量图片、PDF、视频，建议忽略或单独用其他方式同步
+# attachments/
+# *.pdf
+# *.mp4
+
+# 7. 其他常见缓存和临时文件
+*.log
+*.tmp
+.cache/
