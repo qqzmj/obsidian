@@ -45,4 +45,27 @@ yum install -y gcc gcc-c++
 Configuration summary
 #重新进行安装，查看是否存在报错
 ```
-nginx
+## nginx源码编译及安装
+```
+[root@localhost nginx-1.26.3]# lscpu
+#查看cpu数量
+
+[root@localhost nginx-1.26.3]# make -j 4
+#运行4个cpu进行编译，必须在源码文件夹下进行
+
+[root@localhost nginx-1.26.3]# make install
+#该步骤为真正的nginx安装，必须在源码文件夹下进行
+make[1]: Leaving directory `/opt/nginx/nginx-1.26.3'
+
+[root@localhost nginx]# ls
+conf  html  logs  nginx-1.26.3  sbin
+#nginx-1.26.3是解压目录，忽略。conf（配置）、html（网页）、logs（日志）、sbin（程序）
+
+[root@localhost sbin]# ./nginx
+#运行nginx
+```
+## nginx环境变量及服务配置
+```
+
+```
+
