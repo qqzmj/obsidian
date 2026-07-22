@@ -104,6 +104,8 @@ umount /dev/vg1/lv1
 lvremove /dev/vg1/lv1
 #删除逻辑卷
 
+vgchange -an vg1
+#
 ```
 
 
