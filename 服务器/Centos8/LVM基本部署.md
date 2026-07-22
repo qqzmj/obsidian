@@ -138,6 +138,12 @@ lvextend -L 300G /dev/vg1/lv1
 
 xfs_growfs /dev/vg1/lv1
 #在线扩容/dev/vg1/lv1即可
+#resize2fs /dev/vg1/lv1是对ext格式系列的在线扩容工具
+
+lvs
+vgs
+pvs
+#检查是否扩容成功
 
 ```
 
