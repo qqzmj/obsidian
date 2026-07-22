@@ -44,9 +44,31 @@ Successfully copied 4.1kB to /home/nginx/
 ```
 ## 正式创建并启动nginx容器
 ```
+[root@localhost nginx]# docker stop nginx1
+nginx1
+[root@localhost nginx]# docker rm nginx1
+nginx1
+#删除临时容器，或者docker rm -f nginx1删除正在运行的nginx1容器
 
+[root@localhost nginx]# docker run \
+> -p 9002:80 \
+> --name nginx1 \
+> -v /home/nginx/conf/nginx.conf:/etc/nginx/nginx.conf \
+> -v /home/nginx/conf/conf.d:/etc/nginx/conf.d \
+> -v /home/nginx/log:/var/log/nginx \
+> -v /home/nginx/html:/usr/share/nginx/html \
+> -d nginx:latest
+a21124c477508083de65c45b9d91b38d38596f1d5ffc130831319f6cafe5000b
+#创建并启动nginx1容器，并进行端口映射，nginx:latest为指定使用最新版nginx镜像，将容器内文件挂载到宿主机（左边为宿主机目录，右边为docker容器内目录）
 ```
-
+## 平滑加载配置
+```
+配置即时生效​：在宿主机修改 nginx.conf​ 后，只需执行 docker exec nginx nginx -s reload​ 即可平滑加载新配置。
+  
+​数据持久化​：即使删除容器（docker rm nginx​），你的网页文件、配置和日志依然安全地保存在 /home/nginx/​ 目录下。
+  
+方便调试​：可以直接在 /home/nginx/log/access.log​ 中查看实时访问日志，无需进入容器
+```
 
 
 
