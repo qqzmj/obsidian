@@ -90,7 +90,7 @@ http {
             sub_filter 'Index of /' '自用下载站';
             #修改标题
             sub_filter_once off;
-            #控制文本替换的次数，这将会控制页面中所有出现“Index of /”都替换为“自用下载站”
+            #控制文本替换的次数，这将会控制页面中所有出现“Index of /”都替换为“自用下载站”，如果设置为on，则只会替换第一次出现的位置
             if (-f $request_filename) {
                 add_header Content-Disposition 'attachment';
         }
@@ -99,8 +99,9 @@ http {
 =============================================需添加内容
     }
 }}
-
 ```
+## 关闭防火墙和selinux
 
+如果出现无法点击下载，则可能是浏览器问题。建议更换浏览器测试，可以尝试360浏览器。
 
 
