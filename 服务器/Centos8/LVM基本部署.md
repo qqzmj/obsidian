@@ -27,7 +27,11 @@ tmpfs                179M     0  179M   0% /run/user/0
 ```
 ## 创建PV（物理卷）
 ```
-
+[root@192 ~]# pvcreate /dev/nvme0n2 
+  Physical volume "/dev/nvme0n2" successfully created.
+[root@192 ~]# pvcreate /dev/nvme0n3
+  Physical volume "/dev/nvme0n3" successfully created.
+#将硬盘初始化为LVM的物理卷
 ```
 
 
