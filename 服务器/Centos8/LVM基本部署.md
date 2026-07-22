@@ -102,10 +102,18 @@ umount /dev/vg1/lv1
 #取消挂载
 
 lvremove /dev/vg1/lv1
-#删除逻辑卷
+#删除逻辑卷，如果有多个可以选择逐个删除lv或者删除整个VG，整个删除不建议
 
 vgchange -an vg1
-#
+#停用卷组
+
+vgremove vg1
+#删除卷组
+
+pvremove /dev/nvme0n2
+pvremove /dev/nvme0n3
+#删除物理卷，清除LVM标记
+
 ```
 
 
