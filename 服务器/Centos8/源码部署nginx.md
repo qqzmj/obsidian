@@ -11,12 +11,15 @@ tar -zxvf nginx安装包 -C /nginx
 ```
 [root@localhost nginx-1.26.3]# ./configure --help
 #带with的是默认不安装的，带without是默认已经安装了的。可以选择配置专门管理nginx的用户以提升安全性，也可以不配置使用默认的root用户进行管理
-yum install -y gcc gcc-c++
 
+yum install -y gcc gcc-c++
+#编译器安装
 ```
 ![[Pasted image 20260722202411.png]]
 ```
 #上面图片中带PATH的是相应文件默认存放路径，可以设置也可以不设置（默认在根下面）。以上所有参数根据需要进行添加。
 ```
 
+---
 
+指定源码安装目录和需要
