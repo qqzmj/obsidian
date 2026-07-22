@@ -53,7 +53,14 @@ tmpfs                179M     0  179M   0% /run/user/0
 ```
 ## 创建LV（逻辑卷）
 ```
-
+[root@192 ~]# lvcreate -l 100%FREE -n lv1 vg1
+  Logical volume "lv1" created.
+#
+[root@192 ~]# lvs
+  LV   VG  Attr       LSize   Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
+  root cl  -wi-ao----  26.96g                                                    
+  swap cl  -wi-ao----   2.03g                                                    
+  lv1  vg1 -wi-a----- 199.99g   
 ```
 
 
