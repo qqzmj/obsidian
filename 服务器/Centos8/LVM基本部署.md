@@ -72,6 +72,19 @@ tmpfs                179M     0  179M   0% /run/user/0
 [root@192 ~]# mount /dev/vg1/lv1 /panalog/logdata
 #将lv格式化，创建挂载目录，将lv挂载到目录上
 
+[root@192 ~]# xfs_growfs /dev/vg1/lv1
+meta-data=/dev/mapper/vg1-lv1    isize=512    agcount=4, agsize=13106688 blks
+         =                       sectsz=512   attr=2, projid32bit=1
+         =                       crc=1        finobt=1, sparse=1, rmapbt=0
+         =                       reflink=1
+data     =                       bsize=4096   blocks=52426752, imaxpct=25
+         =                       sunit=0      swidth=0 blks
+naming   =version 2              bsize=4096   ascii-ci=0, ftype=1
+log      =internal log           bsize=4096   blocks=25599, version=2
+         =                       sectsz=512   sunit=0 blks, lazy-count=1
+realtime =none                   extsz=4096   blocks=0, rtextents=0
+#
+
 [root@192 ~]# blkid | grep lv1
 /dev/mapper/vg1-lv1: UUID="7f758be4-7b53-4c23-9e3a-517907eb2586" BLOCK_SIZE="512" TYPE="xfs"
 #查看lv的UUID，用于开机自动挂载
