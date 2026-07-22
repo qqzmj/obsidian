@@ -21,5 +21,6 @@ chmod +x /etc/rc.d/rc.local
 systemctl start rc-local
 systemctl enable rc-local
 vim /etc/rc.d/rc.local
-	
+	/usr/logd/bin/logd &
+#给rc.local添加执行权限，并且启动rc服务。在rc.local中添加开机自动执行的命令，就达到了开机自启动panalog服务的功能
 ```
