@@ -120,9 +120,12 @@ vgs
 lvs
 lsblk
 #验证是否删除，lsblk查看nvme0n2 和 nvme0n3 应该是空白无挂载状态
-
 ```
-
+## 扩容LVM步骤
+```
+vgdisplay vg1 | grep -i free
+#查看
+```
 
 
 
