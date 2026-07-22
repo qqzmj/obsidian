@@ -69,6 +69,7 @@ http {
         }
     }
 =============================================需添加内容
+
     server {
         listen       8080 default_server;
         listen       [::]:8080 default_server;
@@ -76,7 +77,9 @@ http {
 
         location / {
             root /datadir;
+            #指定哪个目录作为http服务器的根目录
             autoindex on;
+            #
             autoindex_exact_size off;
             autoindex_localtime on;
             charset utf-8;
@@ -86,6 +89,8 @@ http {
                 add_header Content-Disposition 'attachment';
         }
 #这个if块用于只对文件添加http响应头，实现点击文件即可下载，访问目录之类的不会触发下载
+
+=============================================需添加内容
     }
 }}
 
