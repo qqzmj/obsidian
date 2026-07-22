@@ -22,4 +22,27 @@ yum install -y gcc gcc-c++
 
 ---
 
-指定源码安装目录和需要
+## 指定源码安装目录和需要的模块
+```
+[root@localhost nginx-1.26.3]# ./configure --prefix=/opt/nginx --with-http_mp4_module 
+#指定源码安装目录、安装mp4模块。后续会提示相关报错，HTTP重写需要PCRE库。
+
+[root@localhost nginx-1.26.3]# yum list all | grep -i pcre
+#查看是否存在pcre包
+
+[root@localhost nginx-1.26.3]# yum -y install pcre-devel pcre
+#安装pcre
+
+[root@localhost nginx-1.26.3]# ./configure --prefix=/opt/nginx --with-http_mp4_module 
+#重新进行安装，查看是否存在报错
+./configure: error: the HTTP gzip module requires the zlib library.
+#提示HTTP gzip模块需要zlib库
+
+[root@localhost nginx-1.26.3]# yum install -y zlib-devel zlib
+#安装zlib
+
+[root@localhost nginx-1.26.3]# ./configure --prefix=/opt/nginx --with-http_mp4_module 
+Configuration summary
+#重新进行安装，查看是否存在报错
+```
+nginx
