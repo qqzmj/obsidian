@@ -79,8 +79,10 @@ http {
             root /datadir;
             #指定哪个目录作为http服务器的根目录
             autoindex on;
-            #
+            #开启目录索引功能，即允许列出整个目录
             autoindex_exact_size off;
+            #on，能够显示出文件的确切大小，单位是bytes
+            #off，显示文件大概大小，单位是kB或MB
             autoindex_localtime on;
             charset utf-8;
             sub_filter 'Index of /' '自用下载站';
