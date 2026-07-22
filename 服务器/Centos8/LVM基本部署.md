@@ -40,16 +40,21 @@ tmpfs                179M     0  179M   0% /run/user/0
   /dev/nvme0n3      lvm2 ---  100.00g 100.00g
 #查看pv简要信息，详细信息使用pvdisplay
 ```
-## 创建VG并将PV加入到VG
+## 创建VG（卷组）并将PV加入到VG
 ```
 [root@192 ~]# vgcreate vg1 /dev/nvme0n2 /dev/nvme0n3
   Volume group "vg1" successfully created
+#将硬盘加入到名称vg1的VG卷组中
+
 [root@192 ~]# vgs
   VG  #PV #LV #SN Attr   VSize   VFree  
   cl    1   2   0 wz--n- <29.00g      0 
   vg1   2   0   0 wz--n- 199.99g 199.99g
 ```
+## 创建LV（逻辑卷）
+```
 
+```
 
 
 
