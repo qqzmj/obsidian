@@ -128,6 +128,12 @@ lsblk
 vgdisplay vg1 | grep -i free
 #查看卷组剩余空间
 
+lvextend -L +10G /dev/vg1/lv1
+lvextend -l +100%FREE /dev/vg1/lv1
+lvextend -L 300G /dev/vg1/lv1
+#增加10G
+#使用剩余所有空间
+#
 
 ```
 
