@@ -70,8 +70,12 @@ tmpfs                179M     0  179M   0% /run/user/0
 [root@192 ~]# mkfs.xfs /dev/vg1/lv1
 [root@192 ~]# mkdir -p /panalog/logdata
 [root@192 ~]# mount /dev/vg1/lv1 /panalog/logdata
+
 [root@192 ~]# blkid | grep lv1
 /dev/mapper/vg1-lv1: UUID="7f758be4-7b53-4c23-9e3a-517907eb2586" BLOCK_SIZE="512" TYPE="xfs"
+[root@192 ~]# vi /etc/fstab 
+	UUID=7f758be4-7b53-4c23-9e3a-517907eb2586 /panalog/logdata xfs defaults 0 0
+[root@192 ~]# mount -a 
 ```
 
 
