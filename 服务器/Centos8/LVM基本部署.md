@@ -23,7 +23,11 @@ tmpfs                896M     0  896M   0% /sys/fs/cgroup
 /dev/mapper/cl-root   27G  3.0G   24G  11% /
 /dev/nvme0n1p1      1014M  216M  799M  22% /boot
 tmpfs                179M     0  179M   0% /run/user/0
-#
+#可以看到我们新增的硬盘没有挂载，这就不会影响系统以及数据。这种情况下才可以进行操作，否则影响系统
+```
+## 创建PV（物理卷）
+```
+
 ```
 
 
