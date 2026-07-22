@@ -57,6 +57,8 @@ tmpfs                179M     0  179M   0% /run/user/0
   Logical volume "lv1" created.
 #-n指定逻辑卷名称
 #创建一个名为lv1的逻辑卷，调用vg1卷组的空间，使用vg1所有空间
+#lvcreate -L 199.99G -n lv1 vg1，这是自定义大小的方式
+
 [root@192 ~]# lvs
   LV   VG  Attr       LSize   Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
   root cl  -wi-ao----  26.96g                                                    
