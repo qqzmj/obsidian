@@ -109,10 +109,17 @@ vgchange -an vg1
 
 vgremove vg1
 #删除卷组
+#vgremove --force vg1，强制删除卷组及其左右LV，谨慎使用
 
 pvremove /dev/nvme0n2
 pvremove /dev/nvme0n3
 #删除物理卷，清除LVM标记
+
+pvs
+vgs
+lvs
+lsblk
+#验证是否删除，lsblk查看nvme0n2 和 nvme0n3 应该是空白无挂载状态
 
 ```
 
