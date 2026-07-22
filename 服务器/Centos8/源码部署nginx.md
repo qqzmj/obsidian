@@ -87,8 +87,33 @@ PATH=/opt/nginx/sbin:$PATH:$HOME/bin
 ```
 ## 将源码nginx创建成服务进行管理(可选)
 ```
+[root@localhost ~]# cd /usr/lib/systemd/system
+#所有服务均在该目录下
 
+[root@localhost system]# cp -a vsftpd.service nginx.service
+#vsftpd的服务文件跟nginx很类似，用来改比较方便，这里直接复制粘贴进行修改即可
+
+[root@localhost system]# vim nginx.service 
+	[Unit]
+	Description=nginx web daemon
+	#描述名称
+	After=network.target
+
+	[Service]
+	Type=forking
+	ExecStart=/opt/nginx/sbin/nginx
+	#启动目录
+
+	[Install]
+	WantedBy=multi-user.target
+	
+[root@localhost system]# systemctl daemon-reload
+#重新加载
+[root@localhost ~]# systemctl restart nginx
+#需要先关闭之前运行的nginx服务才可以启动
+
+[root@localhost ~]# systemctl enable nginx
 ```
-
+## 防火墙放行服务端口
 
 
