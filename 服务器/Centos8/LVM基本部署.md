@@ -123,8 +123,12 @@ lsblk
 ```
 ## 扩容LVM步骤
 ```
+#根据情况判断是扩容VG还是只用扩容LV
+
 vgdisplay vg1 | grep -i free
-#查看
+#查看卷组剩余空间
+
+
 ```
 
 
