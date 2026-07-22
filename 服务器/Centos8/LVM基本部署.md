@@ -65,17 +65,22 @@ tmpfs                179M     0  179M   0% /run/user/0
   swap cl  -wi-ao----   2.03g                                                    
   lv1  vg1 -wi-a----- 199.99g   
 ```
-## 挂载
+## 格式化并挂载
 ```
 [root@192 ~]# mkfs.xfs /dev/vg1/lv1
 [root@192 ~]# mkdir -p /panalog/logdata
 [root@192 ~]# mount /dev/vg1/lv1 /panalog/logdata
+#将lv格式化，创建挂载目录，将lv挂载到目录上
 
 [root@192 ~]# blkid | grep lv1
 /dev/mapper/vg1-lv1: UUID="7f758be4-7b53-4c23-9e3a-517907eb2586" BLOCK_SIZE="512" TYPE="xfs"
+#查看lv的UUID，用于开机自动挂载
 [root@192 ~]# vi /etc/fstab 
 	UUID=7f758be4-7b53-4c23-9e3a-517907eb2586 /panalog/logdata xfs defaults 0 0
+	
 [root@192 ~]# mount -a 
+[root@192 ~]# df -h | grep lv1
+/dev/mapper/vg1-lv1  200G  1.5G  199G   1% /panalog/logdata
 ```
 
 
