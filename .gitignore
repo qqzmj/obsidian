@@ -1,0 +1,16 @@
+# Obsidian workspace and cache (don't sync these — they're personal/per-device)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+.obsidian/hotkeys.json
+
+# Obsidian plugin data that's device-specific
+.obsidian/plugins/*/data.json
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Trash
+.Trash-*
