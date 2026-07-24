@@ -174,8 +174,47 @@ minimum：最小TTL。用于负缓存（即查询不存在的域名时），告�
 -rw-r-----. 1 root  named  166 Jul 24 15:25 weibo.com.forward
 #查看权限是否正确
 
-
-
+[root@localhost named]# cat weibo.com.forward 
+$TTL 1D
+@       IN SOA  @ rname.invalid. (
+                                        0       ; serial
+                                        1D      ; refresh
+                                        1H      ; retry
+                                        1W      ; expire
+                                        3H )    ; minimum
+        NS      weibo.com.
+weibo.com.      A       111.13.134.130
+[root@localhost named]# cat aliyun.com.forward 
+$TTL 1D
+@       IN SOA  @ rname.invalid. (
+                                        0       ; serial
+                                        1D      ; refresh
+                                        1H      ; retry
+                                        1W      ; expire
+                                        3H )    ; minimum
+        NS      aliyun.com.
+aliyun.com.      A       140.205.135.3
+[root@localhost named]# cat baidu.com.forward 
+$TTL 1D
+@       IN SOA  @ rname.invalid. (
+                                        0       ; serial
+                                        1D      ; refresh
+                                        1H      ; retry
+                                        1W      ; expire
+                                        3H )    ; minimum
+        NS      baidu.com.
+baidu.com.      A       182.61.200.110
+[root@localhost named]# cat qq.com.forward 
+$TTL 1D
+@       IN SOA  @ rname.invalid. (
+                                        0       ; serial
+                                        1D      ; refresh
+                                        1H      ; retry
+                                        1W      ; expire
+                                        3H )    ; minimum
+        NS      qq.com.
+qq.com.      A       112.60.14.252
+#上面是相关域名的正向配置
 
 
 
