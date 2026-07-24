@@ -16,6 +16,9 @@
                    };
 #修改并增加cache-only配置
 
+	dnssec-enable no;
+    dnssec-validation no;
+
 [root@localhost ~]# named-checkconf 
 #检查配置文件语法
 
