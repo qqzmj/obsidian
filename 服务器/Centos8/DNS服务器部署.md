@@ -69,7 +69,7 @@ public (active)
 	};
 
 [root@localhost ~]# tcpdump -i any -n port 53 and host 114.114.114.114
-#抓包
+#抓包验证
 dropped privs to tcpdump
 tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
 listening on any, link-type LINUX_SLL (Linux cooked v1), capture size 262144 bytes
@@ -77,7 +77,6 @@ listening on any, link-type LINUX_SLL (Linux cooked v1), capture size 262144 byt
 14:01:37.637757 IP 114.114.114.114.domain > 192.168.73.11.54174: 60856 2/5/12 A 182.61.200.108, A 182.61.200.110 (412)
 14:01:48.308822 IP 192.168.73.11.55292 > 114.114.114.114.domain: 8026+% [1au] A? aliyun.com. (67)
 14:01:48.332518 IP 114.114.114.114.domain > 192.168.73.11.55292: 8026 6/3/13 A 106.11.253.83, A 106.11.248.146, A 140.205.135.3, A 106.11.172.9, A 140.205.60.46, A 106.11.249.99 (445)
-
 ```
 
 
