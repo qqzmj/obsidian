@@ -5,9 +5,16 @@
 ```
 ## Cache-only DNS配置
 ```
-vim /etc/named.conf
+[root@localhost ~]# vim /etc/named.conf
 	listen-on port 53 { any; };
 	allow-query     { any; };
+	
+	forward only;
+        forwarders {
+                        119.29.29.29;
+                        223.5.5.5;
+                   };
+[root@localhost ~]# named-checkconf 
 ```
 
 
