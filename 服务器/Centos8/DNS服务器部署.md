@@ -14,7 +14,14 @@
                         119.29.29.29;
                         223.5.5.5;
                    };
+#修改并增加cache-only配置
+
 [root@localhost ~]# named-checkconf 
+#检查配置文件语法
+
+[root@localhost ~]# systemctl start named
+[root@localhost ~]# systemctl enable named
+#启动并配置自启动named服务
 ```
 
 
