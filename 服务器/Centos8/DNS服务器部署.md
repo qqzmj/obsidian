@@ -82,3 +82,43 @@ listening on any, link-type LINUX_SLL (Linux cooked v1), capture size 262144 byt
 以上为修改后的配置文件
 ## 自定义正反向解析
 ### 正向解析区域文件示例
+```
+[root@localhost named]# cat named.localhost
+$TTL 1D
+@       IN SOA  @ rname.invalid. (
+                                        0       ; serial
+                                        1D      ; refresh
+                                        1H      ; retry
+                                        1W      ; expire
+                                        3H )    ; minimum
+        NS      @
+        A       127.0.0.1
+        AAAA    ::1
+```
+
+### 反向解析区域文件示例
+```
+[root@localhost named]# cat named.loopback 
+$TTL 1D
+@       IN SOA  @ rname.invalid. (
+                                        0       ; serial
+                                        1D      ; refresh
+                                        1H      ; retry
+                                        1W      ; expire
+                                        3H )    ; minimum
+        NS      @
+        A       127.0.0.1
+        AAAA    ::1
+        PTR     localhost.
+```
+
+
+
+
+
+
+
+
+
+
+
