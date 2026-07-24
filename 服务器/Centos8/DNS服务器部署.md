@@ -51,6 +51,7 @@ public (active)
   rich rules: 
 ```
 ![[named.conf]]
+上面是修改后的文件
 
 
 
