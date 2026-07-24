@@ -8,16 +8,17 @@
 [root@localhost ~]# vim /etc/named.conf
 	listen-on port 53 { any; };
 	allow-query     { any; };
-	
+	#允许所有人进行访问和查询
 	forward only;
         forwarders {
                         119.29.29.29;
                         223.5.5.5;
                    };
 #修改并增加cache-only配置
-
 	dnssec-enable no;
     dnssec-validation no;
+    #session-keyfile "/run/named/session.key";
+#关闭dnssec，取消检查根密钥文件。不这样做会出现dnssec验证问题，导致无法解析
 
 [root@localhost ~]# named-checkconf 
 #检查配置文件语法
