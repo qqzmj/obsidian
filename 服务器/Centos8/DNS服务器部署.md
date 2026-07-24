@@ -154,10 +154,17 @@ minimum：最小TTL。用于负缓存（即查询不存在的域名时），告�
 ```
 ## 区域配置文件
 ```
+[root@localhost named]# ll named.localhost 
+-rw-r-----. 1 root named 152 Aug 25  2021 named.localhost
+[root@localhost named]# ll named.loopback 
+-rw-r-----. 1 root named 168 Aug 25  2021 named.loopback
+#正向区域文件默认权限属性，一定要保持一致，否则服务无法启动
+
 [root@localhost named]# cp -a named.localhost baidu.com.forward
 [root@localhost named]# cp -a named.localhost aliyun.com.forward
 [root@localhost named]# cp -a named.localhost qq.com.forward
 [root@localhost named]# cp -a named.localhost weibo.com.forwar
+#直接复制原有正向区域文件进行修改，-a或者
 
 [root@localhost named]# ll | grep com
 -rw-r-----. 1 root  named  166 Jul 24 15:25 aliyun.com.forward
