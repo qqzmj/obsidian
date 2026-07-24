@@ -5,7 +5,9 @@
 ```
 ## Cache-only DNS配置
 ```
-
+vim /etc/named.conf
+	listen-on port 53 { any; };
+	allow-query     { any; };
 ```
 
 
