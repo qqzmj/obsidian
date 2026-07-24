@@ -81,4 +81,4 @@ listening on any, link-type LINUX_SLL (Linux cooked v1), capture size 262144 byt
 ![[named 1.conf]]
 以上为修改后的配置文件
 ## 自定义正反向解析
-
+### 正向解析区域文件示例
