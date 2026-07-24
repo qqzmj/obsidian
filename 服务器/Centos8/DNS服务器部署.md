@@ -216,8 +216,23 @@ $TTL 1D
 qq.com.      A       112.60.14.252
 #上面是相关域名的正向配置
 
+[root@localhost named]# named-checkconf
+[root@localhost named]# named-checkzone qq.com /var/named/qq.com.forward 
+zone qq.com/IN: loaded serial 0
+OK
+[root@localhost named]# named-checkzone baidu.com /var/named/baidu.com.forward 
+zone baidu.com/IN: loaded serial 0
+OK
+[root@localhost named]# named-checkzone weibo.com /var/named/weibo.com.forward 
+zone weibo.com/IN: loaded serial 0
+OK
+[root@localhost named]# named-checkzone aliyun.com /var/named/aliyun.com.forward 
+zone aliyun.com/IN: loaded serial 0
+OK
+#对named配置文件和区域文件进行语法检查，避免语法错误导致服务无法启动
 
-
+[root@localhost named]# systemctl restart named
+#重启服务生效
 
 ```
 
