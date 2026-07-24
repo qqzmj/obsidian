@@ -50,7 +50,7 @@ public (active)
   icmp-blocks: 
   rich rules: 
 ```
-
+![[named.conf]]
 
 
 
