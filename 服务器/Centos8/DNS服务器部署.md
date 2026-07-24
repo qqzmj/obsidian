@@ -34,7 +34,7 @@ success
 success
 #重加载防火墙配置
 [root@localhost ~]# firewall-cmd --list-all
-#查看防火墙目前所有
+#查看防火墙规则
 public (active)
   target: default
   icmp-block-inversion: no
