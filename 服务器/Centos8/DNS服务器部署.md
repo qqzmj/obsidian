@@ -26,6 +26,30 @@
 [root@localhost ~]# systemctl start named
 [root@localhost ~]# systemctl enable named
 #启动并配置自启动named服务
+
+[root@localhost ~]# firewall-cmd --permanent --add-service=dns
+success
+#放行dns服务
+[root@localhost ~]# firewall-cmd --reload
+success
+#重加载防火墙配置
+[root@localhost ~]# firewall-cmd --list-all
+#查看防火墙目前所有
+public (active)
+  target: default
+  icmp-block-inversion: no
+  interfaces: ens160
+  sources: 
+  services: cockpit dhcpv6-client dns ssh
+  ports: 
+  protocols: 
+  forward: no
+  masquerade: no
+  forward-ports: 
+  source-ports: 
+  icmp-blocks: 
+  rich rules: 
+
 ```
 
 
