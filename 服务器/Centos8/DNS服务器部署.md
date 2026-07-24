@@ -164,13 +164,22 @@ minimum：最小TTL。用于负缓存（即查询不存在的域名时），告�
 [root@localhost named]# cp -a named.localhost aliyun.com.forward
 [root@localhost named]# cp -a named.localhost qq.com.forward
 [root@localhost named]# cp -a named.localhost weibo.com.forwar
-#直接复制原有正向区域文件进行修改，-a或者
+#直接复制原有正向区域文件进行修改，-a或者-p保证权限和属性不变
+#文件名称需要跟named.rfc1912.zones文件里面定义的file名称一致
 
 [root@localhost named]# ll | grep com
 -rw-r-----. 1 root  named  166 Jul 24 15:25 aliyun.com.forward
 -rw-r-----. 1 root  named  395 Jul 24 17:45 baidu.com.forward
 -rw-r-----. 1 root  named  166 Jul 24 15:25 qq.com.forward
 -rw-r-----. 1 root  named  166 Jul 24 15:25 weibo.com.forward
+#查看权限是否正确
+
+
+
+
+
+
+
 ```
 
 
