@@ -128,29 +128,29 @@ minimum：最小TTL。用于负缓存（即查询不存在的域名时），告�
 ### named.rfc1912.zones文件
 ```
 [root@localhost named]# cat /etc/named.rfc1912.zones
-zone "baidu.com" IN {
-        type master;
-        file "baidu.com.forward";
-        allow-update { none; };
-};
-
-zone "aliyun.com" IN {
-        type master;
-        file "aliyun.com.forward";
-        allow-update { none; };
-};
-
-zone "qq.com" IN {
-        type master;
-        file "qq.com.forward";
-        allow-update { none; };
-};
-
-zone "weibo.com" IN {
-        type master;
-        file "weibo.com.forward";
-        allow-update { none; };
-};
+	zone "baidu.com" IN {
+	        type master;
+	        file "baidu.com.forward";
+	        allow-update { none; };
+	};
+	
+	zone "aliyun.com" IN {
+	        type master;
+	        file "aliyun.com.forward";
+	        allow-update { none; };
+	};
+	
+	zone "qq.com" IN {
+	        type master;
+	        file "qq.com.forward";
+	        allow-update { none; };
+	};
+	
+	zone "weibo.com" IN {
+	        type master;
+	        file "weibo.com.forward";
+	        allow-update { none; };
+	};
 ```
 
 
