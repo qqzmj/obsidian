@@ -80,7 +80,7 @@ listening on any, link-type LINUX_SLL (Linux cooked v1), capture size 262144 byt
 ```
 ![[named 1.conf]]
 以上为修改后的配置文件
-## 自定义正反向解析
+## 自定义正反向解析区域文件
 ### 正向解析区域文件示例
 ```
 [root@localhost named]# cat named.localhost
@@ -95,7 +95,6 @@ $TTL 1D
         A       127.0.0.1
         AAAA    ::1
 ```
-
 ### 反向解析区域文件示例
 ```
 [root@localhost named]# cat named.loopback 
@@ -111,7 +110,6 @@ $TTL 1D
         AAAA    ::1
         PTR     localhost.
 ```
-
 ### 内容参数讲解
 ```
 A：即A记录，将域名映射到ipv4地址
@@ -126,7 +124,7 @@ retry：重试时间。如果主从同步失败，从服务器每隔1小时重�
 expire：过期时间。如果主服务器在1周内始终无法联系上，从服务器将放弃提供该区域的解析服务
 minimum：最小TTL。用于负缓存（即查询不存在的域名时），告诉解析器最多缓存3小时
 ```
-
+正反向解析
 
 
 
