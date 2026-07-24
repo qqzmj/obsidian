@@ -235,7 +235,7 @@ OK
 #重启服务生效
 [root@localhost named]# rndc reload
 server reload successful
-#
+#重加载也可以生效，这个不会断业务，是热加载，重启服务是冷加载会断业务
 
 ```
 
