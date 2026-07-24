@@ -49,7 +49,6 @@ public (active)
   source-ports: 
   icmp-blocks: 
   rich rules: 
-
 ```
 
 
