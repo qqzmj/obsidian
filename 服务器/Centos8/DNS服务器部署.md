@@ -56,7 +56,17 @@ public (active)
 
 ```
 
+zone "baidu.com"{
+        type forward;
+        forward only;
+        forwarders { 114.114.114.114; };
+};
 
+zone "aliyun.com"{
+        type forward;
+        forward only;
+        forwarders { 114.114.114.114; };
+};
 
 ```
 
