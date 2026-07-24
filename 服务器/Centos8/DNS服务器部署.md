@@ -233,6 +233,9 @@ OK
 
 [root@localhost named]# systemctl restart named
 #重启服务生效
+[root@localhost named]# rndc reload
+server reload successful
+#
 
 ```
 
