@@ -10,10 +10,10 @@
 	allow-query     { any; };
 	#允许所有人进行访问和查询
 	forward only;
-        forwarders {
-                        119.29.29.29;
-                        223.5.5.5;
-                   };
+    forwarders {
+                119.29.29.29;
+                223.5.5.5;
+                };
 #修改并增加cache-only配置
 	dnssec-enable no;
     dnssec-validation no;
