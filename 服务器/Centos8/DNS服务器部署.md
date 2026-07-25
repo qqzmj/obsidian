@@ -195,7 +195,9 @@ zone "qq.com" IN {
         type forward;
         #声明这个 zone 的类型是“转发”，而不是 `master`（权威主服务器）或 `slave`（权威辅服务器）。转发区域不存储任何本地记录
         forwarders { 223.5.5.5; };
+        #指定转发的目标 DNS 服务器
         forward only;
+        #告诉 BIND 只尝试转发，不自己迭代解析。如果转发目标全部无响应，就直接返回 `SERVFAIL` 给客户端，而不会自己去查根。另一种选项是 `forward first;`，会先转发，失败后再自行迭代
 };
 ```
 ### 区域配置文件
