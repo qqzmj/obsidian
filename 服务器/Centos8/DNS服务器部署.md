@@ -178,9 +178,11 @@ zone "0.in-addr.arpa" IN {
 
 zone "baidu.com" IN {
         type master;
-        #定义区域角色，这里说明这台DNS服务器是该区域的
+        #定义区域角色，这里说明这台DNS服务器是该区域的主服务器
         file "baidu.com.forward";
+	    #区域文件存放位置及名称，存放位置我没有更改所以是默认/var/named
         allow-update { none; };
+        #禁止动态更新，不允许任何客户端通过动态更新
 };
 
 zone "aliyun.com" IN {
