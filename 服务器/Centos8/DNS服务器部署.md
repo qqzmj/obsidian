@@ -125,8 +125,10 @@ expire：过期时间。如果主服务器在1周内始终无法联系上，从�
 minimum：最小TTL。用于负缓存（即查询不存在的域名时），告诉解析器最多缓存3小时
 ```
 ## 自定义DNS配置
-### 正反向解析配置
-#### named.rfc1912.zones文件
+### DNS配置文件
+
+
+### named.rfc1912.zones文件
 ```
 [root@localhost named]# cat /etc/named.rfc1912.zones 
 // named.rfc1912.zones:
