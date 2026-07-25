@@ -488,10 +488,11 @@ zone "aliyun.com" IN {
 zone notify queued
 [root@localhost named]# rndc notify baidu.com
 zone notify queued
-
+[root@localhost named]# systemctl restart named
 
 备DNS：
 [root@localhost named]# tail -f /var/log/messages | grep named
+#实时查看日志，发现已经成功同步
 Jul 25 15:56:28 localhost named[3313]: client @0x7f8f780bfab0 192.168.73.11#52082: received notify for zone '0.in-addr.arpa'
 Jul 25 15:56:28 localhost named[3313]: client @0x7f8f780bfab0 192.168.73.11#43957: received notify for zone 'aliyun.com'
 Jul 25 15:56:28 localhost named[3313]: zone aliyun.com/IN: notify from 192.168.73.11#43957: zone is up to date
@@ -502,5 +503,4 @@ Jul 25 15:56:28 localhost named[3313]: client @0x7f8f780bfab0 192.168.73.11#4395
 Jul 25 15:56:28 localhost named[3313]: zone baidu.com/IN: notify from 192.168.73.11#43957: zone is up to date
 Jul 25 15:56:28 localhost named[3313]: client @0x7f8f780ce680 192.168.73.11#43957: received notify for zone 'localhost'
 
-#发现
 ```
