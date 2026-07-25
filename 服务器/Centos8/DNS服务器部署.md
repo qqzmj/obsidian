@@ -492,7 +492,7 @@ zone notify queued
 
 备DNS：
 [root@localhost named]# tail -f /var/log/messages | grep named
-#实时查看日志，发现已经成功同步
+#实时查看日志，发现已经成功同步，后续进行进一步确认
 Jul 25 15:56:28 localhost named[3313]: client @0x7f8f780bfab0 192.168.73.11#52082: received notify for zone '0.in-addr.arpa'
 Jul 25 15:56:28 localhost named[3313]: client @0x7f8f780bfab0 192.168.73.11#43957: received notify for zone 'aliyun.com'
 Jul 25 15:56:28 localhost named[3313]: zone aliyun.com/IN: notify from 192.168.73.11#43957: zone is up to date
