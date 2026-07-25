@@ -473,6 +473,7 @@ zone "aliyun.com" IN {
 [root@localhost named]# ll | grep com
 -rw-r--r--. 1 named named  229 Jul 25 23:39 aliyun.com.forward
 -rw-r--r--. 1 named named  259 Jul 25 23:39 baidu.com.forward
+#配置文件内容是乱码，是从主dns同步过来的
 ```
 
 
