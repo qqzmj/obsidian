@@ -481,4 +481,7 @@ zone "aliyun.com" IN {
 [root@localhost named]# firewall-cmd --reload
 [root@localhost named]# firewall-cmd --list-all
 ```
+### 检查是否成功同步
+```
 
+```
