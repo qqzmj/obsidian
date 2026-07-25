@@ -475,6 +475,9 @@ zone "aliyun.com" IN {
 -rw-r--r--. 1 named named  259 Jul 25 23:39 baidu.com.forward
 #配置文件内容是乱码，是从主dns同步过来的
 ```
-
-
+### 配置防火墙放行DNS服务
+```
+[root@localhost named]# firewall-cmd --add-service=dns --permanent 
+[root@localhost named]# firewall-cmd --reload
+```
 
