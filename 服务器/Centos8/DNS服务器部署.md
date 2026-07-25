@@ -182,7 +182,7 @@ zone "baidu.com" IN {
         file "baidu.com.forward";
 	    #区域文件存放位置及名称，存放位置我没有更改所以是默认/var/named
         allow-update { none; };
-        #禁止动态更新，不允许任何客户端通过动态更新
+        #禁止动态更新，不允许任何客户端通过动态更新（DDNS）来修改这个区域的记录，通常主DNS都是none
 };
 
 zone "aliyun.com" IN {
@@ -193,6 +193,7 @@ zone "aliyun.com" IN {
 
 zone "qq.com" IN {
         type forward;
+        #声明这个 zone 的类型是“转发”，而不是 `master`（权威主服务器）或 `slave`（权威辅服务器）。转发区域不存储任何本地记录
         forwarders { 223.5.5.5; };
         forward only;
 };
