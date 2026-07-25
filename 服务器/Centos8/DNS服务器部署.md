@@ -502,5 +502,8 @@ Jul 25 15:56:28 localhost named[3313]: client @0x7f8f780bfab0 192.168.73.11#4395
 Jul 25 15:56:28 localhost named[3313]: client @0x7f8f780bfab0 192.168.73.11#43957: received notify for zone 'baidu.com'
 Jul 25 15:56:28 localhost named[3313]: zone baidu.com/IN: notify from 192.168.73.11#43957: zone is up to date
 Jul 25 15:56:28 localhost named[3313]: client @0x7f8f780ce680 192.168.73.11#43957: received notify for zone 'localhost'
-
+```
+```
+[root@dns-master named]# dig @192.168.73.12 aliyun.com +short SOA
+aliyun.com. rname.invalid. 20260725 600 120 604800 600
 ```
