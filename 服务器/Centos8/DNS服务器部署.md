@@ -479,5 +479,6 @@ zone "aliyun.com" IN {
 ```
 [root@localhost named]# firewall-cmd --add-service=dns --permanent 
 [root@localhost named]# firewall-cmd --reload
+[root@localhost named]# firewall-cmd --list-all
 ```
 
