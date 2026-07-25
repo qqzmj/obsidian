@@ -128,30 +128,72 @@ minimum：最小TTL。用于负缓存（即查询不存在的域名时），告�
 ### 正反向解析配置
 #### named.rfc1912.zones文件
 ```
-[root@localhost named]# cat /etc/named.rfc1912.zones
-	zone "baidu.com" IN {
-	        type master;
-	        file "baidu.com.forward";
-	        allow-update { none; };
-	};
-	
-	zone "aliyun.com" IN {
-	        type master;
-	        file "aliyun.com.forward";
-	        allow-update { none; };
-	};
-	
-	zone "qq.com" IN {
-	        type master;
-	        file "qq.com.forward";
-	        allow-update { none; };
-	};
-	
-	zone "weibo.com" IN {
-	        type master;
-	        file "weibo.com.forward";
-	        allow-update { none; };
-	};
+[root@localhost named]# cat /etc/named.rfc1912.zones 
+// named.rfc1912.zones:
+//
+// Provided by Red Hat caching-nameserver package 
+//
+// ISC BIND named zone configuration for zones recommended by
+// RFC 1912 section 4.1 : localhost TLDs and address zones
+// and https://tools.ietf.org/html/rfc6303
+// (c)2007 R W Franks
+// 
+// See /usr/share/doc/bind*/sample/ for example named configuration files.
+//
+// Note: empty-zones-enable yes; option is default.
+// If private ranges should be forwarded, add 
+// disable-empty-zone "."; into options
+// 
+
+zone "localhost.localdomain" IN {
+        type master;
+        file "named.localhost";
+        allow-update { none; };
+};
+
+zone "localhost" IN {
+        type master;
+        file "named.localhost";
+        allow-update { none; };
+};
+
+zone "1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa" IN {
+        type master;
+        file "named.loopback";
+        allow-update { none; };
+};
+
+zone "1.0.0.127.in-addr.arpa" IN {
+        type master;
+        file "named.loopback";
+        allow-update { none; };
+};
+
+zone "0.in-addr.arpa" IN {
+        type master;
+        file "named.empty";
+        allow-update { none; };
+};
+
+
+zone "baidu.com" IN {
+        type master;
+        #定义区域角色，这里说明这台DNS服务器是该区域的
+        file "baidu.com.forward";
+        allow-update { none; };
+};
+
+zone "aliyun.com" IN {
+        type master;
+        file "aliyun.com.forward";
+        allow-update { none; };
+};
+
+zone "qq.com" IN {
+        type forward;
+        forwarders { 223.5.5.5; };
+        forward only;
+};
 ```
 ### 区域配置文件
 ```
