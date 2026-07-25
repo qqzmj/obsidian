@@ -483,5 +483,23 @@ zone "aliyun.com" IN {
 ```
 ### 检查是否成功同步
 ```
+主DNS：
+[root@localhost named]# rndc notify aliyun.com
+zone notify queued
+[root@localhost named]# rndc notify baidu.com
+zone notify queued
 
+备DNS：
+[root@localhost named]# tail -f /var/log/messages | grep named
+Jul 25 23:49:32 localhost named[3313]: zone weibo.com/IN: refresh: non-authoritative answer from master 192.168.73.11#53 (source 0.0.0.0#0)
+Jul 25 23:49:33 localhost named[3313]: client @0x7f8f780bfab0 192.168.73.11#37225: received notify for zone 'aliyun.com'
+Jul 25 23:49:33 localhost named[3313]: zone aliyun.com/IN: notify from 192.168.73.11#37225: zone is up to date
+Jul 25 23:49:35 localhost named[3313]: zone qq.com/IN: refresh: non-authoritative answer from master 192.168.73.11#53 (source 0.0.0.0#0)
+Jul 25 23:49:38 localhost named[3313]: client @0x7f8f780bfab0 192.168.73.11#37529: received notify for zone 'baidu.com'
+Jul 25 23:49:38 localhost named[3313]: zone baidu.com/IN: notify from 192.168.73.11#37529: zone is up to date
+Jul 25 23:49:57 localhost named[3313]: client @0x7f8f780bfab0 192.168.73.11#33907: received notify for zone 'aliyun.com'
+Jul 25 23:49:57 localhost named[3313]: zone aliyun.com/IN: notify from 192.168.73.11#33907: zone is up to date
+Jul 25 23:49:59 localhost named[3313]: client @0x7f8f780bfab0 192.168.73.11#54792: received notify for zone 'baidu.com'
+Jul 25 23:49:59 localhost named[3313]: zone baidu.com/IN: notify from 192.168.73.11#54792: zone is up to date
+#发现
 ```
