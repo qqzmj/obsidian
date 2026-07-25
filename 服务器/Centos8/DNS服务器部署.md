@@ -153,7 +153,7 @@ minimum：最小TTL。用于负缓存（即查询不存在的域名时），告�
 	        allow-update { none; };
 	};
 ```
-## 区域配置文件
+### 区域配置文件
 ```
 [root@localhost named]# ll named.localhost 
 -rw-r-----. 1 root named 152 Aug 25  2021 named.localhost
