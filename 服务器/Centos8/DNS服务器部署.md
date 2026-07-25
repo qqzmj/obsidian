@@ -248,14 +248,13 @@ zone "baidu.com" IN {
         #定义区域角色，这里说明这台DNS服务器是该区域的主服务器
         file "baidu.com.forward";
 	    #区域文件存放位置及名称，存放位置我没有更改所以是默认/var/named
-        allow-update { none; };
-        #禁止动态更新，不允许任何客户端通过动态更新（DDNS）来修改这个区域的记录，通常主DNS都是none
+        allow-transfer { 192.168.73.12; };
 };
 
 zone "aliyun.com" IN {
         type master;
         file "aliyun.com.forward";
-        allow-update { none; };
+        allow-transfer { 192.168.73.12; };
 };
 
 zone "qq.com" IN {
