@@ -468,7 +468,12 @@ zone "aliyun.com" IN {
 };
 #需要手动添加该区域
 ```
-
+### 备DNS区域配置文件
+```
+[root@localhost named]# ll | grep com
+-rw-r--r--. 1 named named  229 Jul 25 23:39 aliyun.com.forward
+-rw-r--r--. 1 named named  259 Jul 25 23:39 baidu.com.forward
+```
 
 
 
