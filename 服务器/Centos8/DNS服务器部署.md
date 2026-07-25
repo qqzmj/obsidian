@@ -226,6 +226,7 @@ $TTL 1D
                                         2M      ; retry
                                         1W      ; expire
                                         10M )    ; minimum
+#
         NS      aliyun.com.
 aliyun.com.      A       140.205.135.3
 *      A       140.205.135.3
@@ -256,9 +257,6 @@ zone qq.com/IN: loaded serial 0
 OK
 [root@localhost named]# named-checkzone baidu.com /var/named/baidu.com.forward 
 zone baidu.com/IN: loaded serial 0
-OK
-[root@localhost named]# named-checkzone weibo.com /var/named/weibo.com.forward 
-zone weibo.com/IN: loaded serial 0
 OK
 [root@localhost named]# named-checkzone aliyun.com /var/named/aliyun.com.forward 
 zone aliyun.com/IN: loaded serial 0
