@@ -210,58 +210,42 @@ zone "qq.com" IN {
 
 [root@localhost named]# cp -a named.localhost baidu.com.forward
 [root@localhost named]# cp -a named.localhost aliyun.com.forward
-[root@localhost named]# cp -a named.localhost qq.com.forward
-[root@localhost named]# cp -a named.localhost weibo.com.forwar
 #直接复制原有正向区域文件进行修改，-a或者-p保证权限和属性不变
 #文件名称需要跟named.rfc1912.zones文件里面定义的file名称一致
 
 [root@localhost named]# ll | grep com
--rw-r-----. 1 root  named  166 Jul 24 15:25 aliyun.com.forward
--rw-r-----. 1 root  named  395 Jul 24 17:45 baidu.com.forward
--rw-r-----. 1 root  named  166 Jul 24 15:25 qq.com.forward
--rw-r-----. 1 root  named  166 Jul 24 15:25 weibo.com.forward
+-rw-r-----. 1 root  named  434 Jul 25 15:20 aliyun.com.forward
+-rw-r-----. 1 root  named  640 Jul 25 15:21 baidu.com.forward
 #查看权限是否正确
 
-[root@localhost named]# cat weibo.com.forward 
-$TTL 1D
-@       IN SOA  @ rname.invalid. (
-                                        0       ; serial
-                                        1D      ; refresh
-                                        1H      ; retry
-                                        1W      ; expire
-                                        3H )    ; minimum
-        NS      weibo.com.
-weibo.com.      A       111.13.134.130
 [root@localhost named]# cat aliyun.com.forward 
 $TTL 1D
 @       IN SOA  @ rname.invalid. (
-                                        0       ; serial
-                                        1D      ; refresh
-                                        1H      ; retry
+                                        20260725       ; serial
+                                        10M      ; refresh
+                                        2M      ; retry
                                         1W      ; expire
-                                        3H )    ; minimum
+                                        10M )    ; minimum
         NS      aliyun.com.
 aliyun.com.      A       140.205.135.3
+*      A       140.205.135.3
 [root@localhost named]# cat baidu.com.forward 
 $TTL 1D
 @       IN SOA  @ rname.invalid. (
-                                        0       ; serial
-                                        1D      ; refresh
-                                        1H      ; retry
+                                                20260725       ; serial
+                                        10M      ; refresh
+                                        2M      ; retry
                                         1W      ; expire
-                                        3H )    ; minimum
+                                        10M )    ; minimum
         NS      baidu.com.
-baidu.com.      A       182.61.200.110
-[root@localhost named]# cat qq.com.forward 
-$TTL 1D
-@       IN SOA  @ rname.invalid. (
-                                        0       ; serial
-                                        1D      ; refresh
-                                        1H      ; retry
-                                        1W      ; expire
-                                        3H )    ; minimum
-        NS      qq.com.
-qq.com.      A       112.60.14.252
+*      A       110.242.74.102
+*      A       124.237.177.164
+*      A       111.63.65.247
+*      A       111.63.65.103
+baidu.com.      A       110.242.74.102
+baidu.com.      A       124.237.177.164
+baidu.com.      A       111.63.65.247
+baidu.com.      A       111.63.65.103
 #上面是相关域名的正向配置
 
 [root@localhost named]# named-checkconf
