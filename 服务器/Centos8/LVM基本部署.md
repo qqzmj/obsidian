@@ -1,5 +1,5 @@
 ## LVM基本组成
-![[Pasted image 20260722205312.png]]
+
 <mark style="background:#ff4d4f">扩容无风险，缩减风险大。非必要不缩容</mark>
 ## 查看硬盘信息及当前挂载信息
 ```
