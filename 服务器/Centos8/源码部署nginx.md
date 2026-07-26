@@ -15,7 +15,7 @@ tar -zxvf nginx安装包 -C /nginx
 yum install -y gcc gcc-c++
 #编译器安装
 ```
-![[Pasted image 20260722202411.png]]
+![[Pasted image 20260726162938.png]]
 ```
 #上面图片中带PATH的是相应文件默认存放路径，可以设置也可以不设置（默认在根下面）。以上所有参数根据需要进行添加。
 ```
