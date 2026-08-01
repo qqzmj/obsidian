@@ -32,7 +32,9 @@ A view-only password is not used
 Password: 
 [root@192 ~]# cd /etc/systemd/system/
 [root@192 system]# vim vncserver@.service
+#创建vncserver@.service文件
 [root@192 system]# cat vncserver@.service 
+#以下是需要写入的配置内容
 [Unit]
 Description=Remote Desktop VNC Service
 After=syslog.target network.target
