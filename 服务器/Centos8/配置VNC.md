@@ -67,5 +67,5 @@ systemctl status vncserver@:1 --no-pager
 ss -lntp | grep 5901
 cat /home/vncuser1/.vnc/*:1.log
 #查看VNC日志是否有错误
-#此时可以连接，在主机通过VNC工具IP:
+#此时可以连接，在主机通过VNC工具IP:5901即可连接
 ```
