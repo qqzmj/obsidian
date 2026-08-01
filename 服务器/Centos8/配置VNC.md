@@ -22,6 +22,8 @@
 Password:
 Verify:
 Would you like to enter a view-only password (y/n)? n
+#询问是否额外设置只读密码
+#y，使用只读密码，
 A view-only password is not used
 
 
