@@ -12,8 +12,8 @@
 [root@192 ~]# dnf install tigervnc-server tigervnc-server-module -y
 #安装VNC软件
 [root@192 ~]# useradd -m vncuser1
-#创建用于VNC登录的用户，VNC不支持使用root用户
+#创建用于VNC登录的用户(-m创建家目录)，VNC不支持使用root用户
 [root@192 ~]# usermod -aG wheel vncuser1
-#将vncuser1加入到管理员组wheel()中
+#将vncuser1加入到管理员组wheel(组ID:10)中
 
 ```
