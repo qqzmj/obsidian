@@ -31,6 +31,24 @@ A view-only password is not used
 [vncuser1@192 system]$ su - root
 Password: 
 [root@192 ~]# cd /etc/systemd/system/
+[root@192 system]# vim vncserver@.service
+[root@192 system]# cat vncserver@.service 
+[Unit]
+Description=Remote Desktop VNC Service
+After=syslog.target network.target
+
+[Service]
+Type=forking
+WorkingDirectory=/home/vncuser1
+User=vncuser1
+Group=vncuser1
+
+ExecStartPre=/bin/sh -c '/usr/bin/vncserver -kill %i > /dev/null 2>&1 || :'
+ExecStart=/usr/bin/vncserver -autokill %i
+ExecStop=/usr/bin/vncserver -kill %i
+
+[Install]
+WantedBy=multi-user.target
 
 
 ```
