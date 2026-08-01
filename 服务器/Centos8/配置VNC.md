@@ -51,6 +51,14 @@ ExecStop=/usr/bin/vncserver -kill %i
 
 [Install]
 WantedBy=multi-user.target
+======================
+[root@192 system]# systemctl daemon-reload
+[root@192 system]# systemctl start vncserver@:1.service
+[root@192 system]# systemctl enable vncserver@:1.service
+Created symlink /etc/systemd/system/multi-user.target.wants/vncserver@:1.service → /etc/systemd/system/vncserver@.service.
+[root@192 system]# netstat -tunlp | grep 5901
+tcp        0      0 0.0.0.0:5901            0.0.0.0:*               LISTEN      3848/Xvnc           
+tcp6       0      0 :::5901                 :::*                    LISTEN      3848/Xvnc           
 
 
 ```
