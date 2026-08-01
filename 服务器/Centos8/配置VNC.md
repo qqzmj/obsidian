@@ -53,12 +53,33 @@ ExecStop=/usr/bin/vncserver -kill %i
 WantedBy=multi-user.target
 ======================
 [root@192 system]# systemctl daemon-reload
+#重新加载 systemd 的管理器配置
 [root@192 system]# systemctl start vncserver@:1.service
+#立即启动一个 VNC 服务实例
 [root@192 system]# systemctl enable vncserver@:1.service
 Created symlink /etc/systemd/system/multi-user.target.wants/vncserver@:1.service → /etc/systemd/system/vncserver@.service.
 [root@192 system]# netstat -tunlp | grep 5901
 tcp        0      0 0.0.0.0:5901            0.0.0.0:*               LISTEN      3848/Xvnc           
 tcp6       0      0 :::5901                 :::*                    LISTEN      3848/Xvnc           
-
+======================
+[root@192 system]# firewall-cmd --add-port=5901/tcp --permanent 
+success
+[root@192 system]# firewall-cmd --reload
+success
+[root@192 system]# firewall-cmd --list-all
+public (active)
+  target: default
+  icmp-block-inversion: no
+  interfaces: ens160
+  sources: 
+  services: cockpit dhcpv6-client ssh
+  ports: 5901/tcp
+  protocols: 
+  forward: no
+  masquerade: no
+  forward-ports: 
+  source-ports: 
+  icmp-blocks: 
+  rich rules: 
 
 ```
