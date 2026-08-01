@@ -11,6 +11,7 @@
 ```
 [root@192 ~]# dnf install tigervnc-server tigervnc-server-module -y
 #安装VNC软件
+======================
 [root@192 ~]# useradd -m vncuser1
 #创建用于VNC登录的用户(-m创建家目录)，VNC不支持使用root用户
 [root@192 ~]# usermod -aG wheel vncuser1
@@ -26,6 +27,10 @@ Would you like to enter a view-only password (y/n)? n
 #y，使用只读密码，仅观看（画面同步，但所有按键和点击无效）
 #n，不适用只读密码，完全控制（鼠标、键盘、复制粘贴、关机）
 A view-only password is not used
-[vncuser1@192 ~]$ cd /etc/systemd/system/
+======================
+[vncuser1@192 system]$ su - root
+Password: 
+[root@192 ~]# cd /etc/systemd/system/
+
 
 ```
