@@ -7,7 +7,9 @@
 [root@192 ~]# reboot
 #重启生效
 ```
-## 安装VNC软件
+## VNC配置
 ```
 [root@192 ~]# dnf install tigervnc-server tigervnc-server-module -y
+#安装VNC软件
+
 ```
