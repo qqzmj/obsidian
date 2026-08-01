@@ -57,6 +57,7 @@ WantedBy=multi-user.target
 [root@192 system]# systemctl start vncserver@:1.service
 #立即启动一个 VNC 服务实例
 [root@192 system]# systemctl enable vncserver@:1.service
+#将服务设置为开机自动启动
 Created symlink /etc/systemd/system/multi-user.target.wants/vncserver@:1.service → /etc/systemd/system/vncserver@.service.
 [root@192 system]# netstat -tunlp | grep 5901
 tcp        0      0 0.0.0.0:5901            0.0.0.0:*               LISTEN      3848/Xvnc           
@@ -64,8 +65,10 @@ tcp6       0      0 :::5901                 :::*                    LISTEN      
 ======================
 [root@192 system]# firewall-cmd --add-port=5901/tcp --permanent 
 success
+#将VNC使用的TCP5901端口放行
 [root@192 system]# firewall-cmd --reload
 success
+#重加载防火墙配置
 [root@192 system]# firewall-cmd --list-all
 public (active)
   target: default
