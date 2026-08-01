@@ -19,5 +19,38 @@ su - vncuser1 -c "vncpasswd"
 ```
 ## 配置Xfce桌面启动文件
 ```
+cat > /home/vncuser1/.vnc/xstartup << 'EOF'
+#!/bin/sh
+unset SESSION_MANAGER
+unset DBUS_SESSION_BUS_ADDRESS
+exec startxfce4
+EOF
+chown vncuser1:vncuser1 /home/vncuser1/.vnc/xstartup
+chmod 755 /home/vncuser1/.vnc/xstartup
+#root用户下执行上述
+```
+## 配置systemd管理VNC服务
+```
+cat > /etc/systemd/system/vncserver@.service << 'EOF'
+[Unit]
+Description=VNC Server for %I
+After=syslog.target network.target
 
+[Service]
+Type=forking
+User=vncuser1
+Group=vncuser1
+WorkingDirectory=/home/vncuser1
+ExecStartPre=/bin/sh -c '/usr/bin/vncserver -kill %i >/dev/null 2>&1 || :'
+ExecStart=/usr/bin/vncserver %i -geometry 1280x720 -depth 24 -localhost no
+ExecStop=/usr/bin/vncserver -kill %i
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+systemctl daemon-reload
+systemctl enable --now vncserver@:1
+#重新加载 systemd 并启用、启动 VNC
+#这里的 `:1` 表示显示编号 1，对应端口 `5901'
 ```
