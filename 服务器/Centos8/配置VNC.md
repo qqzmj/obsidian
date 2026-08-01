@@ -26,6 +26,6 @@ Would you like to enter a view-only password (y/n)? n
 #y，使用只读密码，仅观看（画面同步，但所有按键和点击无效）
 #n，不适用只读密码，完全控制（鼠标、键盘、复制粘贴、关机）
 A view-only password is not used
-
+[vncuser1@192 ~]$ cd /etc/systemd/system/
 
 ```
