@@ -14,7 +14,10 @@ passwd vncuser1
 mkdir -p /home/vncuser1/.vnc
 chown vncuser1:vncuser1 /home/vncuser1/.vnc
 chmod 700 /home/vncuser1/.vnc
-#root用户下执行上述
 su - vncuser1 -c "vncpasswd"
+#root用户下执行上述
+```
+## 配置Xfce桌面启动文件
 ```
 
+```
