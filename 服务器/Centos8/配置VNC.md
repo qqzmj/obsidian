@@ -54,3 +54,18 @@ systemctl enable --now vncserver@:1
 #重新加载 systemd 并启用、启动 VNC
 #这里的 `:1` 表示显示编号 1，对应端口 `5901'
 ```
+## 配置防火墙
+```
+firewall-cmd --permanent --add-port=5901/tcp
+firewall-cmd --reload
+setenforce 0
+vim /etc/sysconfig/selinux
+```
+## 验证是否成功
+```
+systemctl status vncserver@:1 --no-pager
+ss -lntp | grep 5901
+cat /home/vncuser1/.vnc/*:1.log
+#查看VNC日志是否有错误
+#此时可以连接，在主机通过VNC工具IP:
+```
