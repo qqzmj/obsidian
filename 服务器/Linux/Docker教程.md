@@ -14,3 +14,22 @@ tcp        0      0 0.0.0.0:9090            0.0.0.0:*               LISTEN      
 tcp6       0      0 :::9090                 :::*                    LISTEN      27172/docker-proxy  
 ```
 ## 容器导入导出
+
+
+```
+[root@localhost ~]# docker run -d -it --name vmc1 centos:8
+35957d6510c27099179628d47e07df106476bbd925be3bd334a8eaf03fa00f4a
+[root@localhost ~]# docker ps
+CONTAINER ID   IMAGE      COMMAND       CREATED         STATUS         PORTS     NAMES
+35957d6510c2   centos:8   "/bin/bash"   4 seconds ago   Up 3 seconds             vmc1
+[root@localhost ~]# docker export 35957d6510c2 > ~/vmc1.tar
+[root@localhost ~]# ll -a | grep vmc1
+-rw-r--r--.  1 root root 238571520 Aug  8 15:49 vmc1.tar
+[root@localhost ~]# docker kill vmc1
+vmc1
+[root@localhost ~]# docker rm -f vmc1
+vmc1
+[root@localhost ~]# docker ps 
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+```
