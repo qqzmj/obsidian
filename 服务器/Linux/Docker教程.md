@@ -38,4 +38,10 @@ CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 [root@localhost ~]# docker images
 REPOSITORY    TAG       IMAGE ID       CREATED         SIZE
 vm1           latest    c684bc6e5a38   7 seconds ago   231MB
+[root@localhost ~]# docker run -d -it --name myvm1 vm1 /bin/bash
+bac39aeaa709ef3539b079397a18e530418fcf68c9328fa33ac507f6fcf95e54
+[root@localhost ~]# docker exec -it myvm1 /bin/bash
+[root@bac39aeaa709 /]# ls
+bin  etc   lib    lost+found  mnt  proc  run   srv  tmp  var
+dev  home  lib64  media       opt  root  sbin  sys  usr
 ```
