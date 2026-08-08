@@ -13,7 +13,7 @@ root@user1-U1:~# netstat -tunlp | grep 9090
 tcp        0      0 0.0.0.0:9090            0.0.0.0:*               LISTEN      27164/docker-proxy  
 tcp6       0      0 :::9090                 :::*                    LISTEN      27172/docker-proxy  
 ```
-## 容器导入导出
+## 容器导入导出镜像
 
 
 ```
@@ -31,5 +31,11 @@ vmc1
 vmc1
 [root@localhost ~]# docker ps 
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
-
+[root@localhost ~]# docker import - vm1 < ~/vmc1.tar
+sha256:c684bc6e5a38513e712200480566272228f5ca8b3d2e891aa33af8b9148c9010
+[root@localhost ~]# docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+[root@localhost ~]# docker images
+REPOSITORY    TAG       IMAGE ID       CREATED         SIZE
+vm1           latest    c684bc6e5a38   7 seconds ago   231MB
 ```
